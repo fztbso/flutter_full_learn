@@ -11,26 +11,46 @@ class PageViewLearn extends StatefulWidget {
 }
 
 class _PageViewLearnState extends State<PageViewLearn> {
+
+  final _pageController = PageController(viewportFraction: 0.7);
+
+  int _currentPageIndex = 0;
+  void _updatePageIndex(int index) {
+    setState(() {
+      _currentPageIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Text(_currentPageIndex.toString()),
+          ),
+          Spacer(),
           FloatingActionButton(
-            onPressed: (){},
+            onPressed: (){
+              _pageController.previousPage(duration: _DurationUtility._durationLow, curve: Curves.slowMiddle);
+            },
             child: Icon(Icons.chevron_left),
           ),
           FloatingActionButton(
-            onPressed: (){},
+            onPressed: (){
+              _pageController.nextPage(duration: _DurationUtility._durationLow, curve: Curves.slowMiddle);
+            },
             child: Icon(Icons.chevron_right),
           ),
         ],
       ),
       appBar: AppBar(),
       body: PageView(
-        // controller: PageController(viewportFraction: 0.7), bir sonraki sayfanın önizlemesini gösterir
-
+        //controller: PageController(viewportFraction: 0.7), // bir sonraki sayfanın önizlemesini gösterir
+        controller: _pageController,
+        padEnds: false,
+        onPageChanged: _updatePageIndex,
         children: [
           ImageLearn(),
           StackLearn(),
@@ -39,4 +59,8 @@ class _PageViewLearnState extends State<PageViewLearn> {
       ),
     );
   }
+}
+
+class _DurationUtility {
+  static const _durationLow = const Duration(seconds: 1);
 }
