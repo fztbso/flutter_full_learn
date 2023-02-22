@@ -64,7 +64,6 @@ class MyApp extends StatelessWidget {
           systemOverlayStyle: SystemUiOverlayStyle.light, //en üstteki saat wifi batarya işaret rengi
         )
       ),
-
       home: ListViewLearn(),
     );
   }
