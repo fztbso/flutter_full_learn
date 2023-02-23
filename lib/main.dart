@@ -12,6 +12,7 @@ import '101/icon_learn.dart';
 import '101/image_learn.dart';
 import '101/indicator_learn.dart';
 import '101/list_tile_learn.dart';
+import '101/list_view_builder.dart';
 import '101/list_view_learn.dart';
 import '101/padding_learn.dart';
 import '101/page_view_learn.dart';
@@ -23,6 +24,7 @@ import '101/stateless_learn.dart';
 import '101/text_field_learn.dart';
 import 'demos/color_demos_view.dart';
 import 'demos/color_life_cycle_view.dart';
+import 'demos/my_collections_demos.dart';
 import 'demos/note_demos_view.dart';
 import 'demos/stack_demo_view.dart';
 
@@ -64,7 +66,7 @@ class MyApp extends StatelessWidget {
           systemOverlayStyle: SystemUiOverlayStyle.light, //en üstteki saat wifi batarya işaret rengi
         )
       ),
-      home: ListViewLearn(),
+      home: MyCollectionsDemos(),
     );
   }
 }
