@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_full_learn/101/text_learn_view.dart';
+import 'package:flutter_full_learn/202/service/comment_learn_view.dart';
 import '101/app_bar_learn.dart';
 import '101/button_learn.dart';
 import '101/card_learn.dart';
@@ -77,7 +78,7 @@ class MyApp extends StatelessWidget {
           systemOverlayStyle: SystemUiOverlayStyle.light, //en üstteki saat wifi batarya işaret rengi
         )
       ),
-      home: ServiceLearn(),
+      home: CommentLearnView(),
     );
   }
 }
