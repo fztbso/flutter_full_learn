@@ -25,6 +25,7 @@ import '101/statefull_life_cycle_learn.dart';
 import '101/stateless_learn.dart';
 import '101/text_field_learn.dart';
 import '202/model_learn_view.dart';
+import '202/service/package_learn_view.dart';
 import '202/service/service_learn_get_view.dart';
 import '202/service/service_post_learn_view.dart';
 import '202/tab_learn.dart';
@@ -78,7 +79,7 @@ class MyApp extends StatelessWidget {
           systemOverlayStyle: SystemUiOverlayStyle.light, //en üstteki saat wifi batarya işaret rengi
         )
       ),
-      home: ImageLearn(),
+      home: PackageLearnView(),
     );
   }
 }
