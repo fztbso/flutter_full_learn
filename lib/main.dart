@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_full_learn/101/text_learn_view.dart';
 import 'package:flutter_full_learn/202/service/comment_learn_view.dart';
+import 'package:flutter_full_learn/202/theme/light_theme.dart';
+import 'package:flutter_full_learn/202/theme_learn_view.dart';
 import '101/app_bar_learn.dart';
 import '101/button_learn.dart';
 import '101/card_learn.dart';
@@ -25,7 +27,7 @@ import '101/statefull_life_cycle_learn.dart';
 import '101/stateless_learn.dart';
 import '101/text_field_learn.dart';
 import '202/model_learn_view.dart';
-import '202/service/package_learn_view.dart';
+import '202/package_learn_view.dart';
 import '202/service/service_learn_get_view.dart';
 import '202/service/service_post_learn_view.dart';
 import '202/tab_learn.dart';
@@ -48,7 +50,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
+      theme: LightTheme().theme,
+
+      /* ThemeData.dark().copyWith(
 
         tabBarTheme: TabBarTheme(
           labelColor: Colors.white,
@@ -77,9 +81,10 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           systemOverlayStyle: SystemUiOverlayStyle.light, //en üstteki saat wifi batarya işaret rengi
-        )
+        ),
       ),
-      home: PackageLearnView(),
+       */
+      home: ThemeLearnView(),
     );
   }
 }
