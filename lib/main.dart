@@ -26,7 +26,11 @@ import '101/statefull_learn.dart';
 import '101/statefull_life_cycle_learn.dart';
 import '101/stateless_learn.dart';
 import '101/text_field_learn.dart';
+import '202/animated_learn_view.dart';
+import '202/form_learn_view.dart';
+import '202/image_learn_202.dart';
 import '202/model_learn_view.dart';
+import '202/oop_learn_view.dart';
 import '202/package_learn_view.dart';
 import '202/service/service_learn_get_view.dart';
 import '202/service/service_post_learn_view.dart';
@@ -85,7 +89,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
        */
-      home: ThemeLearnView(),
+      home: FormLearnView(),
     );
   }
 }
