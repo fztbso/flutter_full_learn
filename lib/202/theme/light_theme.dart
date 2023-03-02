@@ -11,7 +11,7 @@ class LightTheme{
 
       appBarTheme: AppBarTheme(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(33))
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
         )
       ),
       
