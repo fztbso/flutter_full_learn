@@ -12,6 +12,7 @@ class SharedLearn extends StatefulWidget {
 class _SharedLearnState extends State<SharedLearn> {
 
   late final SharedManager _manager;
+  late final List<User> userItems;
 
   int  _currentValue = 0;
 
@@ -37,6 +38,7 @@ class _SharedLearnState extends State<SharedLearn> {
     super.initState();
     getDefaultValues();
     _manager = SharedManager();
+    userItems = UserItems().users;
     _initialize();
   }
 
@@ -58,12 +60,7 @@ class _SharedLearnState extends State<SharedLearn> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_currentValue.toString()),
-        actions: [_isLoading ?
-          Center(
-            child: CircularProgressIndicator(
-              color: Theme.of(context).scaffoldBackgroundColor,
-            ),
-          ) : SizedBox.shrink(),
+        actions: [_loading(context),
         ],
       ),
       floatingActionButton: Row(
@@ -76,12 +73,28 @@ class _SharedLearnState extends State<SharedLearn> {
           ),
         ],
       ),
-      body: TextField(
-        onChanged: (value){
-          _onChangeValue(value);
-        },
+      body: Column(
+        children: [
+          TextField(
+            onChanged: (value){
+              _onChangeValue(value);
+            },
+          ),
+          Expanded(
+            child: _UserListView(),
+          ),
+        ],
       ),
     );
+  }
+
+  SingleChildRenderObjectWidget _loading(BuildContext context) {
+    return _isLoading ?
+        Center(
+          child: CircularProgressIndicator(
+            color: Theme.of(context).scaffoldBackgroundColor,
+          ),
+        ) : SizedBox.shrink();
   }
 
   FloatingActionButton _saveValueButton() {
@@ -111,3 +124,47 @@ class _SharedLearnState extends State<SharedLearn> {
   }
 }
 
+class _UserListView extends StatelessWidget {
+   _UserListView({
+    Key? key,
+  }) : super(key: key);
+
+  final List<User> users = UserItems().users;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: users.length,
+        itemBuilder: (BuildContext context, int index){
+          return Card(
+            child: ListTile(
+              title: Text(users[index].name),
+              subtitle: Text(users[index].description),
+              trailing: Text(users[index].url, style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                decoration: TextDecoration.underline
+              )),
+            ),
+          );
+    });
+  }
+}
+
+class User {
+  final String name;
+  final String description;
+  final String url;
+
+  User(this.name, this.description, this.url);
+}
+
+class UserItems {
+  late final List<User> users;
+  UserItems(){
+    users = [
+      User("bkr", "111", "mcbu.edu.tr"),
+      User("kml", "222", "mcbu.edu.tr"),
+      User("rana", "333", "mcbu.edu.tr"),
+      User("elif", "444", "mcbu.edu.tr"),
+    ];
+  }
+}

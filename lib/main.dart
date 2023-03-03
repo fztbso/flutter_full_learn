@@ -35,6 +35,7 @@ import '202/oop_learn_view.dart';
 import '202/package_learn_view.dart';
 import '202/service/service_learn_get_view.dart';
 import '202/service/service_post_learn_view.dart';
+import '202/shared_list_cache.dart';
 import '202/tab_learn.dart';
 import '202/widget_size_enum_learn_view.dart';
 import 'demos/color_demos_view.dart';
@@ -90,7 +91,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
        */
-      home: SharedLearn(),
+      home: SharedListCache(),
     );
   }
 }
