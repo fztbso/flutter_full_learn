@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_full_learn/202/cache/shared_manager.dart';
+import 'package:flutter_full_learn/202/cache/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedLearn extends StatefulWidget {
@@ -9,7 +10,7 @@ class SharedLearn extends StatefulWidget {
   State<SharedLearn> createState() => _SharedLearnState();
 }
 
-class _SharedLearnState extends State<SharedLearn> {
+class _SharedLearnState extends LoadingStatefull<SharedLearn> {
 
   late final SharedManager _manager;
   late final List<User> userItems;
@@ -43,9 +44,9 @@ class _SharedLearnState extends State<SharedLearn> {
   }
 
   Future<void> _initialize() async {
-    _chanegeLoading();
+    changeLoading();
     await _manager.init();
-    _chanegeLoading();
+    changeLoading();
     getDefaultValues();
   }
 
@@ -101,11 +102,11 @@ class _SharedLearnState extends State<SharedLearn> {
     return FloatingActionButton(
       child: Icon(Icons.save),
       onPressed: () async {
-        _chanegeLoading();
+        changeLoading();
         // final prefs = await SharedPreferences.getInstance();
         // await prefs.setInt('counter', _currentValue);
         await _manager.saveString(SharedKeys.counter, _currentValue.toString());
-        _chanegeLoading();
+        changeLoading();
       },
     );
   }
@@ -114,11 +115,11 @@ class _SharedLearnState extends State<SharedLearn> {
     return FloatingActionButton(
       child: Icon(Icons.delete),
       onPressed: () async {
-        _chanegeLoading();
+        changeLoading();
         // final prefs = await SharedPreferences.getInstance();
         // await prefs.remove('counter');
         await _manager.removeItem(SharedKeys.counter);
-        _chanegeLoading();
+        changeLoading();
       },
     );
   }
@@ -138,9 +139,9 @@ class _UserListView extends StatelessWidget {
         itemBuilder: (BuildContext context, int index){
           return Card(
             child: ListTile(
-              title: Text(users[index].name),
-              subtitle: Text(users[index].description),
-              trailing: Text(users[index].url, style: Theme.of(context).textTheme.subtitle1?.copyWith(
+              title: Text(users[index].name ?? ""),
+              subtitle: Text(users[index].description ?? ""),
+              trailing: Text(users[index].url ?? "", style: Theme.of(context).textTheme.subtitle1?.copyWith(
                 decoration: TextDecoration.underline
               )),
             ),
@@ -149,13 +150,6 @@ class _UserListView extends StatelessWidget {
   }
 }
 
-class User {
-  final String name;
-  final String description;
-  final String url;
-
-  User(this.name, this.description, this.url);
-}
 
 class UserItems {
   late final List<User> users;
@@ -166,5 +160,16 @@ class UserItems {
       User("rana", "333", "mcbu.edu.tr"),
       User("elif", "444", "mcbu.edu.tr"),
     ];
+  }
+}
+
+
+abstract class LoadingStatefull<T extends StatefulWidget> extends State<T>{
+  bool isLoading = false;
+
+  void changeLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
   }
 }
