@@ -29,7 +29,7 @@ class _LottieLearnState extends State<LottieLearn> with TickerProviderStateMixin
         actions: [
           InkWell(
             onTap: (){
-              controller.animateTo(isLight ? 0.5 : 1);
+              controller.animateTo(isLight ? 1 : 0.5);
               isLight = !isLight;
               context.read<ThemeNotifier>().changeTheme();
             },
@@ -42,7 +42,7 @@ class _LottieLearnState extends State<LottieLearn> with TickerProviderStateMixin
       ),
       body: Column(
         children: [
-          Lottie.network("https://assets1.lottiefiles.com/packages/lf20_pvjwvcvn.json"),
+          Lottie.network("https://assets1.lottiefiles.com/packages/lf20_pvjwvcvn.json",),
           LoadingLottie(),
         ],
       ),
