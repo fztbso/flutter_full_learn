@@ -38,6 +38,7 @@ dependencies:
 
   #Core
   equatable: ^2.0.5
+  collection: any
 
   #Google
   url_launcher: ^6.1.10
