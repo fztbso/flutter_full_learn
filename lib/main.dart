@@ -5,10 +5,13 @@ import 'package:flutter_full_learn/101/text_learn_view.dart';
 import 'package:flutter_full_learn/202/service/comment_learn_view.dart';
 import 'package:flutter_full_learn/202/theme/light_theme.dart';
 import 'package:flutter_full_learn/202/theme_learn_view.dart';
+import 'package:flutter_full_learn/303/navigator/navigate_home_detail_view.dart';
+import 'package:flutter_full_learn/303/navigator/navigate_home_view.dart';
 import 'package:flutter_full_learn/303/tabbar_advance.dart';
 import 'package:flutter_full_learn/product/constant/project_items.dart';
 import 'package:flutter_full_learn/product/global/resource_context.dart';
 import 'package:flutter_full_learn/product/global/theme_notifier.dart';
+import 'package:flutter_full_learn/product/navigator/navigator_routes.dart';
 import 'package:provider/provider.dart';
 import '101/app_bar_learn.dart';
 import '101/button_learn.dart';
@@ -48,6 +51,7 @@ import '202/sheet_learn.dart';
 import '202/tab_learn.dart';
 import '202/widget_size_enum_learn_view.dart';
 import '303/call_back_learn.dart';
+import '303/feed_view.dart';
 import '303/lottie_learn.dart';
 import '303/reqres_resource/view/reqres_view.dart';
 import 'demos/color_demos_view.dart';
@@ -110,7 +114,22 @@ class MyApp extends StatelessWidget {
         ),
       ),
        */
-      home: LottieLearn(),
+      onUnknownRoute: (settings){
+        return MaterialPageRoute(builder: (context){
+          return LottieLearn();
+        });
+      },
+      routes: NavigatorRoutes().items,
+      onGenerateRoute: (settings){
+        if(settings.name == "/home"){
+          return MaterialPageRoute(builder: (context){
+            return LottieLearn();
+          });
+        }
+        return null;
+      },
+
+      // home: LottieLearn(),
     );
   }
 }
