@@ -42,6 +42,7 @@ dependencies:
 
   #Google
   url_launcher: ^6.1.10
+  image_picker: ^0.8.7
   json_serializable: ^6.6.1
   json_annotation: ^4.8.0
 
