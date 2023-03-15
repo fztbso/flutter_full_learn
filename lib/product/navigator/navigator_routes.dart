@@ -3,9 +3,9 @@ import '../../303/navigator/navigate_home_detail_view.dart';
 import '../../303/navigator/navigate_home_view.dart';
 
 class NavigatorRoutes {
-  static const _paraf = "/";
+  static const paraf = "/";
   final items = {
-    _paraf : (context) => LottieLearn(),
+    paraf : (context) => LottieLearn(),
     NavigateRoutes.home.withParaf : (context) => NavigateHomeView(),
     NavigateRoutes.detail.withParaf : (context) => NavigateHomeDetail()
   };
