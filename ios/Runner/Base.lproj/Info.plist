@@ -35,6 +35,8 @@
 	<string>Main</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>We want your Calendars for our Database</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We need to your library for sharing photo</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
