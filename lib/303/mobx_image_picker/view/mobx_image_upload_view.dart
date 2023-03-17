@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class MobxImageUpload extends StatefulWidget {
   const MobxImageUpload({Key? key}) : super(key: key);
@@ -8,6 +9,7 @@ class MobxImageUpload extends StatefulWidget {
 }
 
 class _MobxImageUploadState extends State<MobxImageUpload> {
+  final String _imageUploadLottiePath = "https://assets1.lottiefiles.com/packages/lf20_urbk83vw.json";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +18,10 @@ class _MobxImageUploadState extends State<MobxImageUpload> {
       ),
       body: Column(
         children: [
+          Expanded(
+              flex: 5,
+              child: Lottie.network(_imageUploadLottiePath)),
+          Divider(),
           Expanded(
             flex: 2,
             child: Card(

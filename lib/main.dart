@@ -11,6 +11,8 @@ import 'package:flutter_full_learn/303/tabbar_advance.dart';
 import 'package:flutter_full_learn/product/constant/project_items.dart';
 import 'package:flutter_full_learn/product/global/resource_context.dart';
 import 'package:flutter_full_learn/product/global/theme_notifier.dart';
+import 'package:flutter_full_learn/product/navigator/navigator_custom.dart';
+import 'package:flutter_full_learn/product/navigator/navigator_manager.dart';
 import 'package:flutter_full_learn/product/navigator/navigator_routes.dart';
 import 'package:provider/provider.dart';
 import '101/app_bar_learn.dart';
@@ -53,6 +55,7 @@ import '202/widget_size_enum_learn_view.dart';
 import '303/call_back_learn.dart';
 import '303/feed_view.dart';
 import '303/lottie_learn.dart';
+import '303/mobx_image_picker/view/mobx_image_upload_view.dart';
 import '303/reqres_resource/view/reqres_view.dart';
 import 'demos/color_demos_view.dart';
 import 'demos/color_life_cycle_view.dart';
@@ -119,17 +122,10 @@ class MyApp extends StatelessWidget {
           return LottieLearn();
         });
       },
-      routes: NavigatorRoutes().items,
-      onGenerateRoute: (settings){
-        if(settings.name == "/home"){
-          return MaterialPageRoute(builder: (context){
-            return LottieLearn();
-          });
-        }
-        return null;
-      },
-
-      // home: LottieLearn(),
+      // routes: NavigatorRoutes().items,
+      onGenerateRoute: NavigatorCustom().onGenerateRoute,
+      navigatorKey: NavigatorManagerr.instance.navigatorGlobalKey,
+      home: MobxImageUpload(),
     );
   }
 }
