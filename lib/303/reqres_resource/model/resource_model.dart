@@ -18,7 +18,7 @@ class ResourceModel {
 }
 
 @JsonSerializable(
-  createToJson: false,
+  // createToJson: false,
 )
 class Data {
   final int? id;
