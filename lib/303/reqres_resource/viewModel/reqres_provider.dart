@@ -25,8 +25,12 @@ class ReqResProvider extends ChangeNotifier {
 
   Future<void> _fetch() async {
     _changeLoading();
-    resources = (await reqresService.fetchResourceItem())?.data ?? [];
+    resources = await fetchItems();
     _changeLoading();
+  }
+
+  Future<List<Data>> fetchItems() async {
+    return (await reqresService.fetchResourceItem())?.data ?? [];
   }
 
   void saveToLocale(ResourceContext resourceContext, List list){
