@@ -29,7 +29,7 @@ class ReqResProvider extends ChangeNotifier {
     _changeLoading();
   }
 
-  void saveToLocale(ResourceContext resourceContext, List<dynamic> list){
+  void saveToLocale(ResourceContext resourceContext, List list){
     resourceContext.saveModel(ResourceModel(data: resources));
   }
 }

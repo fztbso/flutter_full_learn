@@ -44,7 +44,7 @@ class ReqResView extends StatefulWidget {
             CircularProgressIndicator(color: Colors.white,) : null,
             actions: [
               ElevatedButton(onPressed: (){
-                context.read<ReqResProvider>().saveToLocale(context.read<ResourceContext>());
+                context.read<ReqResProvider>().saveToLocale(context.read<ResourceContext>(), []);
                 Navigator.of(context).push(MaterialPageRoute(builder: (_) => ImageLearn202()));
                 },
                   child: Icon(Icons.ac_unit)),
