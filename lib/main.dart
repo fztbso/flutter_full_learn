@@ -58,6 +58,7 @@ import '303/lottie_learn.dart';
 import '303/mobx_image_picker/view/mobx_image_upload_view.dart';
 import '303/package/kartal/kartal_view.dart';
 import '303/reqres_resource/view/reqres_view.dart';
+import '404/bloc/feature/login/view/login_view.dart';
 import 'demos/color_demos_view.dart';
 import 'demos/color_life_cycle_view.dart';
 import 'demos/my_collections_demos.dart';
@@ -126,7 +127,7 @@ class MyApp extends StatelessWidget {
       // routes: NavigatorRoutes().items,
       onGenerateRoute: NavigatorCustom().onGenerateRoute,
       navigatorKey: NavigatorManagerr.instance.navigatorGlobalKey,
-      home: KartalView(),
+      home: LoginView(),
     );
   }
 }

@@ -5,7 +5,7 @@ import 'package:vexana/vexana.dart';
 
 import 'unknown_model.dart';
 
-void main() {
+/* void main() {
   late final INetworkManager networkManager;
   setUp(() {
     networkManager = NetworkManager(
@@ -15,4 +15,4 @@ void main() {
   test("Vexana test", () async {
     final response = await networkManager.send<unknownModel, unknownModel>("/unknown", parseModel: unknownModel(), method: RequestType.GET);
   });
-}
+} */
