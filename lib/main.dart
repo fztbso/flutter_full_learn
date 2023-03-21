@@ -59,6 +59,7 @@ import '303/mobx_image_picker/view/mobx_image_upload_view.dart';
 import '303/package/kartal/kartal_view.dart';
 import '303/reqres_resource/view/reqres_view.dart';
 import '404/bloc/feature/login/view/login_view.dart';
+import '404/compute/compute_learn.dart';
 import 'demos/color_demos_view.dart';
 import 'demos/color_life_cycle_view.dart';
 import 'demos/my_collections_demos.dart';
@@ -66,6 +67,7 @@ import 'demos/note_demos_view.dart';
 import 'demos/stack_demo_view.dart';
 
 void main() {
+
   runApp(MultiProvider(providers: [
       Provider(create: (_) => ResourceContext()),
       ChangeNotifierProvider<ThemeNotifier>(create: (context) => ThemeNotifier())
@@ -86,6 +88,12 @@ class MyApp extends StatelessWidget {
       title: ProjectItems.projectNames,
       debugShowCheckedModeBanner: false,
       theme: context.watch<ThemeNotifier>().currentTheme,
+
+      builder: (context, child){
+        return MediaQuery(data: MediaQuery.of(context).copyWith(
+          textScaleFactor: 1
+        ), child: child ?? SizedBox());
+      },
 
       /* ThemeData.dark().copyWith(
 
@@ -127,7 +135,7 @@ class MyApp extends StatelessWidget {
       // routes: NavigatorRoutes().items,
       onGenerateRoute: NavigatorCustom().onGenerateRoute,
       navigatorKey: NavigatorManagerr.instance.navigatorGlobalKey,
-      home: LoginView(),
+      home: ComputeLearnView(),
     );
   }
 }
