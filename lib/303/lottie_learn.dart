@@ -5,6 +5,7 @@ import 'package:flutter_full_learn/product/global/theme_notifier.dart';
 import 'package:flutter_full_learn/product/navigator/navigator_routes.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:uikit/uikit.dart';
 
 class LottieLearn extends StatefulWidget {
   const LottieLearn({Key? key}) : super(key: key);
@@ -57,19 +58,3 @@ class _LottieLearnState extends State<LottieLearn> with TickerProviderStateMixin
   }
 }
 
-class LoadingLottie extends StatelessWidget {
-  const LoadingLottie({
-    Key? key,
-  }) : super(key: key);
-
-  final _loadingLottie = "https://assets2.lottiefiles.com/packages/lf20_ydo1amjm.json";
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Center(child: Lottie.network(_loadingLottie)),
-      ],
-    );
-  }
-}
